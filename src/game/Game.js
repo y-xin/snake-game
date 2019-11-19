@@ -100,6 +100,12 @@ class Game  {
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.ctx.fillStyle = '#333';
     this.ctx.fillRect(0, 0, this.width, this.height)
+
+    let text = `贪吃蛇游戏`;
+    this.ctx.font = '40px Arial';
+    this.ctx.strokeStyle = '#fff';
+    this.ctx.strokeText(text, this.width / 2 - this.ctx.measureText(text).width / 2, this.height / 2 - 20)
+
   }
 
   /**

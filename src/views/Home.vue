@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <label for="">移动时间</label>
     <input v-model="speed" type="text" placeholder="速度">
     <button @click="start">开始</button>
     <button @click="stop">结束</button>
