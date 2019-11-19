@@ -2,12 +2,10 @@
 import Snake from './Snake'
 import Food from './Food'
 import Store from './Store';
-
 import Score from "./Score";
 
-class Game  {
+class Game {
   constructor(canvasId, width = 500, height = 300) {
-
     this.canvas = document.getElementById(canvasId);
     this.gameOver = false;
     this.speed = 300;
@@ -21,6 +19,7 @@ class Game  {
     this.bindEvent();
     this.initCanvas();
 
+
   }
 
   run() {
@@ -29,28 +28,34 @@ class Game  {
       console.log("游戏结束");
       return clearTimeout(this.timer);
     }
-    this.drawCanvasBg();
-    this.food.draw();
-    this.snake.run();
-    this.score.draw();
-
-    this.check();
+    this.drawCanvasBg(); // 画背景
+    this.food.draw();    // 画食物
+    this.snake.run();    // 画蛇
+    this.score.draw();   // 画分数
+    this.check();       // 碰撞检测
     this.timer = setTimeout(() => {
       this.run()
     }, this.speed)
 
   }
 
+  /**
+   * 开始游戏
+   * @param speed
+   */
   start(speed = 300) {
     this.gameOver = false;
     this.speed = speed;
-    this.initCanvas();
+    this.drawCanvasBg();
     this.snake.init();
     this.score.reset();
     this.food.create();
     this.run();
   }
 
+  /**
+   * 结束游戏
+   */
   stop() {
     this.gameOver = true;
     let text = `游戏结束`;
@@ -84,6 +89,12 @@ class Game  {
   initCanvas() {
     this.setStyle();
     this.drawCanvasBg();
+
+    let text = `贪吃蛇游戏`;
+    this.ctx.font = '40px Arial';
+    this.ctx.strokeStyle = '#fff';
+    this.ctx.strokeText(text, this.width / 2 - this.ctx.measureText(text).width / 2, this.height / 2 - 20)
+
   }
 
   setStyle() {
@@ -100,11 +111,6 @@ class Game  {
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.ctx.fillStyle = '#333';
     this.ctx.fillRect(0, 0, this.width, this.height)
-
-    let text = `贪吃蛇游戏`;
-    this.ctx.font = '40px Arial';
-    this.ctx.strokeStyle = '#fff';
-    this.ctx.strokeText(text, this.width / 2 - this.ctx.measureText(text).width / 2, this.height / 2 - 20)
 
   }
 

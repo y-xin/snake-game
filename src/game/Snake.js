@@ -17,15 +17,9 @@ export default class Snake extends Base {
    * 初始化蛇
    */
   init() {
-    this.direction = 'down';
+    this.direction = 'right';
     this.snakeBlock = [{
-      x: 10, y: 30,
-    }, {
-      x: 10, y: 20,
-    }, {
       x: 10, y: 10,
-    }, {
-      x: 10, y: 0,
     }];
     super.draw(this.x, this.y)
   }

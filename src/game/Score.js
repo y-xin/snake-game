@@ -3,11 +3,9 @@ import Store from "./Store";
 export default class Score {
   constructor() {
     this.store = Store.getInstance();
-
     this.ctx = this.store.get('ctx');
     this.score = 0;
     this.canvasW = this.store.get('width');
-
   }
 
   add() {

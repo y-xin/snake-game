@@ -10,7 +10,6 @@ export default class Food extends Base {
   create() {
     this.x = parseInt(utils.randomValue(0, this.canvasW - this.w) / 10) * 10;
     this.y = parseInt(utils.randomValue(0, this.canvasH - this.h) / 10) * 10;
-
     //食物边框模型
     this.border = {
       top: this.y,
@@ -18,11 +17,10 @@ export default class Food extends Base {
       bottom: this.y + this.h,
       right: this.x + this.w
     }
-    this.draw(this.x, this.y);
   }
 
-  draw(x, y) {
+  draw() {
     this.ctx.fillStyle = 'yellow';
-    super.draw(x, y);
+    super.draw(this.x, this.y);
   }
 }

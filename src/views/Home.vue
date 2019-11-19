@@ -23,7 +23,7 @@
         gameOver: false,
         ready: true,
         score: 0,
-        speed: 100   // 速度值其实为 setTimeout 定时器的时间值 越大越慢
+        speed: 200   // 速度值其实为 setTimeout 定时器的时间值 越大越慢
       }
     },
     mounted() {
